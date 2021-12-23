@@ -34,6 +34,7 @@ io.on('connection', (socket) =>
 
     socket.on("join", (id) => {
         socket.join(id);
+        io.to(id).emit("update", rooms[id]);
     });
 
     socket.on("host", () => {
